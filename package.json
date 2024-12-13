@@ -1,0 +1,33 @@
+{
+  "name": "offlinebackend",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only --respawn --ignore-watch node_modules app/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "build": "tsc --build",
+    "postbuild": "typeorm migration:run",
+    "start": "node build/server.js",
+    "runMigration": "ts-node-dev ./node_modules/typeorm/cli.js migration:run -d ./app/database/app_database.ts"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/multer": "^1.4.12",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "reflect-metadata": "^0.2.2",
+    "sqlite3": "^5.0.2",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.10.2",
+    "ts-node-dev": "^2.0.0"
+  }
+}
